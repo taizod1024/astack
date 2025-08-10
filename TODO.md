@@ -4,7 +4,8 @@
 
 
 ### 基盤構築
-- [ ] Docker環境構築
+- [x] Docker環境構築
+- [ ] postgresqlセットアップ
 - [ ] Node.js/TypeScript初期化
 - [ ] Prismaセットアップ
 - [ ] Express/RestAPI実装
