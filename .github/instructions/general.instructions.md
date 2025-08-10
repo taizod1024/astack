@@ -26,3 +26,6 @@ applyTo: "**"
 
 # docker
 - docker-composeは使用しないでください。
+
+# パスワード
+- astack_pass を使用してください。

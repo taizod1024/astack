@@ -1,26 +1,26 @@
-version: '3.8'
 services:
   astack:
     build: .
     container_name: astack_app
     working_dir: /usr/src/app
-    volumes:
-      - ./:/usr/src/app
     ports:
       - "3000:3000"
     tty: true
-    environment:
-      - NODE_ENV=development
+    env_file:
+      - .env
+    volumes:
+      - ./:/usr/src/app
+    depends_on:
+      - postgres
 
-  db:
+  postgres:
     image: postgres:16
     container_name: astack_db
-    environment:
-      POSTGRES_USER: astack
-      POSTGRES_PASSWORD: astackpass
-      POSTGRES_DB: astackdb
+    restart: always
     ports:
       - "5432:5432"
+    env_file:
+      - .env
     volumes:
       - db_data:/var/lib/postgresql/data
 
