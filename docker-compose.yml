@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  astack:
+    build: .
+    container_name: astack_app
+    working_dir: /usr/src/app
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - "3000:3000"
+    tty: true
+    environment:
+      - NODE_ENV=development
