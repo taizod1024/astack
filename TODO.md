@@ -2,7 +2,6 @@
 
 ## 今後のTODO
 
-
 ### 基盤構築
 - [x] Docker環境構築
 - [x] postgresqlセットアップ
