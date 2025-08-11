@@ -1,7 +1,7 @@
 services:
-  astack:
+  astack-app:
     build: .
-    container_name: astack_app
+    container_name: astack-app
     working_dir: /usr/src/app
     ports:
       - "3000:3000"
@@ -11,11 +11,11 @@ services:
     volumes:
       - ./:/usr/src/app
     depends_on:
-      - postgres
+      - astack-db
 
-  postgres:
+  astack-db:
     image: postgres:16
-    container_name: astack_db
+    container_name: astack-db
     restart: always
     ports:
       - "5432:5432"
