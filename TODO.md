@@ -9,6 +9,7 @@
 - [x] 設定値の.env化
 - [x] Node.js/TypeScript初期化
 - [x] Prismaセットアップ
+- [x] docker-compose.ymlをdevとprodに分ける
 - [ ] Express/RestAPI実装
 - [ ] AdminJS管理画面実装
 - [ ] テストコード作成
