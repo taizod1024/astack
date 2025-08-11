@@ -13,17 +13,19 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/taizod1024/astack/issues"
   },
   "homepage": "https://github.com/taizod1024/astack#readme",
   "devDependencies": {
+    "@types/express": "^5.0.3",
     "@types/node": "^24.2.1",
     "prisma": "^6.13.0",
     "typescript": "^5.9.2"
   },
   "dependencies": {
-    "@prisma/client": "^6.13.0"
+    "@prisma/client": "^6.13.0",
+    "express": "^5.1.0"
   }
 }
