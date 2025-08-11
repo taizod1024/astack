@@ -11,6 +11,7 @@
 - [x] Prismaセットアップ
 - [x] docker-compose.ymlをdevとprodに分ける
 - [x] Express実装
+- [x] Express実装テスト
 - [ ] Prisma実装
 - [ ] テーブルマイグレーション確認
 - [ ] RestAPI実装
