@@ -13,6 +13,9 @@ COPY package*.json ./
 # 依存関係インストール
 RUN npm install || true
 
+# srcディレクトリを本番用イメージにコピー
+COPY src/ ./src/
+
 # ポート開放（例: 3000）
 EXPOSE 3000
 
