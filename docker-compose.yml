@@ -1,4 +1,5 @@
 services:
+
   astack-app:
     build: .
     container_name: astack-app
@@ -16,13 +17,13 @@ services:
   astack-db:
     image: postgres:16
     container_name: astack-db
-    restart: always
-    ports:
-      - "5432:5432"
     env_file:
       - .env
+    ports:
+      - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
+      # - ./init/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
 
 volumes:
   db_data:

@@ -1,1 +1,0 @@
-CREATE DATABASE astack_db;
