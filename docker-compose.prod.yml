@@ -11,7 +11,7 @@ services:
     depends_on:
       - astack-db
     # 本番はボリュームマウントなし、ホットリロードなし
-    command: node dist/index.js
+  command: npx tsx watch src/index.ts
 
   astack-db:
     image: postgres:16

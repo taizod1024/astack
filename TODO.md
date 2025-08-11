@@ -10,6 +10,7 @@
 - [x] Node.js/TypeScript初期化
 - [x] Prismaセットアップ
 - [x] docker-compose.ymlをdevとprodに分ける
+- [ ] デバッグ実行対応
 - [x] Express実装
 - [x] Express実装テスト
 - [ ] Prisma実装
