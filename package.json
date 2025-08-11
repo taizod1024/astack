@@ -4,6 +4,8 @@
   "description": "Node.js、TypeScript、AdminJS、Express、Prisma、Node-RED、PostgreSQL を使用したアプリケーション基盤",
   "main": "index.js",
   "scripts": {
+    "dev:up": "docker compose -f docker-compose.dev.yml up $@",
+    "dev:down": "docker compose -f docker-compose.dev.yml down $@",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
