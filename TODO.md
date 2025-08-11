@@ -10,7 +10,10 @@
 - [x] Node.js/TypeScript初期化
 - [x] Prismaセットアップ
 - [x] docker-compose.ymlをdevとprodに分ける
-- [ ] Express/RestAPI実装
+- [ ] Express実装
+- [ ] Prisma実装
+- [ ] テーブルマイグレーション確認
+- [ ] RestAPI実装
 - [ ] AdminJS管理画面実装
 - [ ] テストコード作成
 
