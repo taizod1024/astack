@@ -1,39 +1,44 @@
 # タスク
 
-## 今後のTODO
+## 今後の TODO
 
 ### 基盤構築
-- [x] Docker環境構築
-- [x] postgresqlセットアップ
-- [x] 設定値の.env化
-- [x] Node.js/TypeScript初期化
-- [x] Prismaセットアップ
-- [x] docker-compose.ymlをdevとprodに分ける
-- [ ] デバッグ実行対応
-- [x] Express実装
-- [x] Express実装テスト
-- [ ] Prisma実装
-- [ ] テーブルマイグレーション確認
-- [ ] RestAPI実装
-- [ ] AdminJS管理画面実装
+
+- [x] Docker 環境構築
+- [x] postgresql セットアップ
+- [x] 設定値の.env 化
+- [x] Node.js/TypeScript 初期化
+- [x] Prisma セットアップ
+- [x] docker-compose.yml を dev と prod に分ける
+ - [x] デバッグ実行対応
+- [x] Express 実装
+- [x] Express 実装テスト
 - [ ] テストコード作成
+- [ ] Prisma 実装
+- [ ] テーブルマイグレーション確認
+- [ ] RestAPI 実装
+- [ ] AdminJS 管理画面実装
 
 ### 業務アプリ作成
+
 - [ ] 業務ロジック設計・実装
 - [ ] UI/ロジックの継承・参照設計
 - [ ] 業務アプリのサンプル作成
 
-### カスタマイズ・SaaS展開
+### カスタマイズ・SaaS 展開
+
 - [ ] 参照型カスタマイズ機能実装
 - [ ] 継承型カスタマイズ機能実装
-- [ ] SaaS提供機能設計・実装
+- [ ] SaaS 提供機能設計・実装
 
 ### 業務アプリ作成
+
 - [ ] 業務ロジック設計・実装
 - [ ] UI/ロジックの継承・参照設計
 - [ ] 業務アプリのサンプル作成
 
-### カスタマイズ・SaaS展開
+### カスタマイズ・SaaS 展開
+
 - [ ] 参照型カスタマイズ機能実装
 - [ ] 継承型カスタマイズ機能実装
-- [ ] SaaS提供機能設計・実装
+- [ ] SaaS 提供機能設計・実装
