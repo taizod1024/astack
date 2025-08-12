@@ -15,9 +15,7 @@
 - [x] Express 実装テスト
 - [x] テストコード作成
 - [x] Prisma 設定追加
-- [ ] Prisma スキーマ設計
- - [x] Prisma スキーマ設計
- - [ ] Prisma モデル定義
+- [x] Prisma スキーマ設計
 - [ ] Prisma モデル定義
 - [ ] Prisma マイグレーション作成・適用
 - [ ] Prisma クライアント生成
