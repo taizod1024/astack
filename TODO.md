@@ -14,7 +14,13 @@
 - [x] Express 実装
 - [x] Express 実装テスト
 - [x] テストコード作成
-- [ ] Prisma 実装
+ - [x] Prisma 設定追加
+ - [ ] Prisma スキーマ設計
+ - [ ] Prisma モデル定義
+ - [ ] Prisma マイグレーション作成・適用
+ - [ ] Prisma クライアント生成
+ - [ ] Prisma DB接続・動作確認
+ - [ ] Prisma サンプルクエリ実装
 - [ ] テーブルマイグレーション確認
 - [ ] RestAPI 実装
 - [ ] AdminJS 管理画面実装
