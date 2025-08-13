@@ -38,7 +38,6 @@
     "@adminjs/express": "^6.1.1",
     "@prisma/client": "^6.13.0",
     "adminjs": "^7.8.17",
-    "casbin": "^5.38.0",
     "express": "^5.1.0",
     "tsx": "^4.20.3"
   }
