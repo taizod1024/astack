@@ -18,11 +18,7 @@
 - [x] Prisma スキーマ設計
 - [ ] AdminJS ログイン画面実装
 - [ ] AdminJS メニュー画面実装
-- [ ] Prisma モデル定義
 - [ ] Prisma マイグレーション作成・適用
-- [ ] Prisma クライアント生成
-- [ ] Prisma DB接続・動作確認
-- [ ] Prisma サンプルクエリ実装
 - [ ] テーブルマイグレーション確認
 - [ ] RestAPI 実装
 
