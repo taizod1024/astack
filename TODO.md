@@ -16,8 +16,8 @@
 - [x] テストコード作成
 - [x] Prisma 設定追加
 - [x] Prisma スキーマ設計
-- [x] AdminJS ログイン画面実装
-- [x] AdminJS メニュー画面実装
+- [ ] AdminJS ログイン画面実装
+- [ ] AdminJS メニュー画面実装
 - [ ] Prisma モデル定義
 - [ ] Prisma マイグレーション作成・適用
 - [ ] Prisma クライアント生成

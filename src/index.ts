@@ -27,7 +27,7 @@ const router = AdminJSExpress.buildAuthenticatedRouter(adminJs, {
 app.use(adminJs.options.rootPath, router);
 
 app.get("/", (req, res) => {
-  res.send("Hello, astack3!");
+  res.send("Hello, astack!");
 });
 
 app.listen(PORT, () => {
