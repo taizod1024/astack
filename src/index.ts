@@ -14,13 +14,18 @@ const adminJs = new AdminJS({
   branding: {
     companyName: com.appName,
     favicon: "/images/astack_icon.ico",
+    // logo: "/images/astack_icon.svg",
   },
   locale: {
     language: "ja",
     availableLanguages: ["ja"],
     localeDetection: true,
     translations: {
-      ja: {},
+      ja: {
+        Labels: {
+          password: "aaaa",
+        },
+      },
     },
   },
 });
