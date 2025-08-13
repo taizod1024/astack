@@ -29,14 +29,15 @@
     "@types/node": "^24.2.1",
     "jest": "^30.0.5",
     "prettier": "^3.6.2",
-    "prisma": "^6.13.0",
+    "prisma": "^6.14.0",
     "ts-jest": "^29.4.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   },
   "dependencies": {
     "@adminjs/express": "^6.1.1",
-    "@prisma/client": "^6.13.0",
+    "@adminjs/prisma": "^5.0.4",
+    "@prisma/client": "^6.14.0",
     "adminjs": "^7.8.17",
     "express": "^5.1.0",
     "tsx": "^4.20.3"

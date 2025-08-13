@@ -1,58 +1,81 @@
 import express from "express";
 import AdminJS from "adminjs";
 import AdminJSExpress from "@adminjs/express";
+import { Database, Resource, getModelByName } from "@adminjs/prisma";
+import { PrismaClient } from "@prisma/client";
 
-const com = {
-  appName: "astack",
-};
-const app = express();
 const PORT = process.env.PORT || 3000;
+const APP_NAME = "astack";
 
-// adminjs
-const adminJs = new AdminJS({
-  rootPath: "/admin",
-  branding: {
-    companyName: com.appName,
-    favicon: "/images/astack_icon.ico",
-    // logo: "/images/astack_icon.svg",
+// prisma
+AdminJS.registerAdapter({ Database, Resource });
+const prisma = new PrismaClient();
+const prismaResources = [
+  {
+    resource: { client: prisma, model: getModelByName("User") },
+    opsions: {},
   },
-  locale: {
-    language: "ja",
-    availableLanguages: ["ja"],
-    localeDetection: true,
-    translations: {
-      ja: {
-        Labels: {
-          password: "aaaa",
+];
+
+async function main() {
+  // アプリケーション
+  const app = express();
+  // adminjs
+  const adminJs = new AdminJS({
+    resources: prismaResources,
+    rootPath: "/admin",
+    branding: {
+      companyName: APP_NAME,
+      favicon: "/images/astack_icon.ico",
+      // logo: "/images/astack_icon.svg",
+    },
+    locale: {
+      language: "ja",
+      availableLanguages: ["ja"],
+      localeDetection: true,
+      translations: {
+        ja: {
+          Labels: {
+            password: "aaaa",
+          },
         },
       },
     },
-  },
-});
+  });
 
-const ADMIN = {
-  email: "admin",
-  password: "astack_pass",
-};
+  // RESTAPI
+  const router = AdminJSExpress.buildRouter(adminJs);
+  app.use(adminJs.options.rootPath, router);
 
-const router = AdminJSExpress.buildAuthenticatedRouter(adminJs, {
-  authenticate: async (email, password) => {
-    if (email === ADMIN.email && password === ADMIN.password) {
-      return ADMIN;
-    }
-    return null;
-  },
-  cookiePassword: "astack_pass",
-});
+  // 認証
+  const ADMIN = {
+    email: "admin",
+    password: "astack_pass",
+  };
 
-app.use("/images", express.static("images"));
-app.use(adminJs.options.rootPath, router);
+  const routerAuth = AdminJSExpress.buildAuthenticatedRouter(adminJs, {
+    authenticate: async (email, password) => {
+      if (email === ADMIN.email && password === ADMIN.password) {
+        return ADMIN;
+      }
+      return null;
+    },
+    cookiePassword: "astack_pass",
+  });
 
-// express
-app.get("/", (req, res) => {
-  res.send("Hello, astack!");
-});
+  app.use("/images", express.static("images"));
+  app.use(adminJs.options.rootPath, routerAuth);
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  // express
+  app.get("/", (req, res) => {
+    res.send("Hello, astack!");
+  });
+
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}
+
+main().finally(async () => {
+  await prisma.$disconnect();
 });
