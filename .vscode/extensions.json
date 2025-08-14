@@ -4,6 +4,7 @@
         "esbenp.prettier-vscode",
         "ms-ceintl.vscode-language-pack-ja",
         "bocovo.prisma-erd-visualizer",
-        "mechatroner.rainbow-csv"
+        "mechatroner.rainbow-csv",
+        "esbenp.prettier-vscode"
     ]
 }

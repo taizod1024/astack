@@ -4,6 +4,8 @@
 
 ### 基盤構築
 
+#### 優先度高
+
 - [x] Docker 環境構築
 - [x] postgresql セットアップ
 - [x] 設定値の.env 化
@@ -19,10 +21,23 @@
 - [x] AdminJS ログイン画面実装
 - [x] Userテーブル追加
 - [x] RestAPI 実装
-  - 自動生成は保留
+- [ ] コンテナ階層化によるカスタマイズ
+
+#### 優先度中
+
+#### 優先度低
+
+- [ ] RestAPI 自動生成
 - [ ] AdminJS メニュー画面実装
-- [ ] Prisma マイグレーション作成・適用
-- [ ] テーブルマイグレーション確認
+- [ ] AdminJS 文言カスタマイズ
+- [ ] Prisma マイグレーション確認
+- [ ] Prisma 暗号化
+- [ ] Prisma レプリケーション
+- [ ] Prisma シード生成
+- [ ] Prisma 論理削除
+
+#### 参考
+- https://zenn.dev/sonicmoov/articles/86b62b88206e27
 
 ### 業務アプリ作成
 
