@@ -18,7 +18,8 @@
 - [x] Prisma スキーマ設計
 - [x] AdminJS ログイン画面実装
 - [x] Userテーブル追加
-- [ ] RestAPI 実装
+- [x] RestAPI 実装
+  - 自動生成は保留
 - [ ] AdminJS メニュー画面実装
 - [ ] Prisma マイグレーション作成・適用
 - [ ] テーブルマイグレーション確認

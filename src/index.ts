@@ -26,7 +26,7 @@ async function main() {
     resources: prismaResources,
     rootPath: "/admin",
     branding: {
-      companyName: APP_NAME + " - " + Date(),
+      companyName: APP_NAME + " - " + new Date().toISOString(),
       favicon: "/images/astack_icon.ico",
       // logo: "/images/astack_icon.svg",
     },
@@ -64,6 +64,25 @@ async function main() {
 
   // 静的ルーティング
   app.use("/images", express.static("images"));
+
+  // REST API
+  app.get("/users", async (req, res) => {
+    const users = await prisma.user.findMany();
+    res.json(users);
+  });
+  app.post("/users", async (req, res) => {
+    const { name, email, password } = req.body;
+    const user = await prisma.user.create({
+      data: { name, email, password },
+    });
+    res.json(user);
+  });
+
+  // サーバー起動
+  const PORT = 3000;
+  app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+  });
 
   // express
   app.get("/", (req, res) => {
