@@ -6,11 +6,6 @@ import { PrismaClient } from "@prisma/client";
 
 const PORT = process.env.PORT || 3000;
 const APP_NAME = "astack";
-// 起動時間をUTCのyyyy/mm/dd hh:mm:ss形式で取得
-const START_TIME = new Date();
-const pad = (n: number): string => n.toString().padStart(2, "0");
-const formatDateUTC = (date: Date): string => `${date.getUTCFullYear()}/${pad(date.getUTCMonth() + 1)}/${pad(date.getUTCDate())} ${pad(date.getUTCHours())}:${pad(date.getUTCMinutes())}:${pad(date.getUTCSeconds())}`;
-const START_TIME_STRING = formatDateUTC(START_TIME);
 
 // prisma
 const prisma = new PrismaClient();
@@ -31,7 +26,7 @@ async function main() {
     resources: prismaResources,
     rootPath: "/admin",
     branding: {
-      companyName: APP_NAME + " - " + START_TIME_STRING,
+      companyName: APP_NAME + " - " + Date(),
       favicon: "/images/astack_icon.ico",
       // logo: "/images/astack_icon.svg",
     },
