@@ -9,7 +9,10 @@
         "module": "nodenext",
         "target": "esnext",
         "types": [
-            "jest"
+            "jest",
+            "node",
+            "mocha",
+            "react"
         ],
         // For nodejs:
         // "lib": ["esnext"],

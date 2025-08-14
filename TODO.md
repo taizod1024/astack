@@ -17,11 +17,11 @@
 - [x] Prisma 設定追加
 - [x] Prisma スキーマ設計
 - [x] AdminJS ログイン画面実装
-- [ ] Userテーブル追加
+- [x] Userテーブル追加
+- [ ] RestAPI 実装
 - [ ] AdminJS メニュー画面実装
 - [ ] Prisma マイグレーション作成・適用
 - [ ] テーブルマイグレーション確認
-- [ ] RestAPI 実装
 
 ### 業務アプリ作成
 
