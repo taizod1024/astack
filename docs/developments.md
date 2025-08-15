@@ -3,10 +3,14 @@
 ## 初期化方法
 
 - wsl2 の ubuntu 上を開く
-- `code .` で vscode を開く
 - git clone する
+- `code .` で vscode を開く ※開発コンテナはまだ開かない
+- `git checkout develop`して開発ブランチにする
 - `npm install`してライブラリをインストールする
 - `npx prisma generate`して Prisma クライアントを生成する
+- 左下の「WSL:Ubuntu」をクリックして「コンテナーで再度開く」を選択
+- `npx prisma migrate dev` を実施
+- [コンテナ起動完了](http://localhost:3000/astack)
 
 ## デバッグ方法
 
