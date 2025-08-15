@@ -4,7 +4,6 @@ model User {
 	email     String   @unique
 	password  String
 	name      String?
-	comment   String?
 	deleted   Boolean  @default(false)
 	createdAt DateTime @default(now())
 	updatedAt DateTime @updatedAt

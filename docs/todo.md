@@ -25,7 +25,8 @@
 - [x] 開発中はdocker-compose.ymlを使用
 - [ ] コンテナ階層化によるカスタマイズ
   - [x] システム構成案
-- [ ] DBカラム追加時の挙動確認・対処方法確認
+- [x] DBカラム追加時の挙動確認・対処方法確認
+  - PrismaのスキーマがAdminJSに反映されない場合で対応済み
 - [ ] ログ管理
 - [ ] 運用管理
 
@@ -33,20 +34,24 @@
 
 - [ ] トラブル対応
   - [x] 開発コンテナを立ち上げてもhttp://localhost:3000/adminjs にアクセスできない場合
-    - .devcontainer/docker-compose.yml のcommandがsleep infinityになっていることが原因
+    - `.devcontainer/docker-compose.yml`のcommandがsleep infinityになっていることが原因
   - [x] PrismaのスキーマがAdminJSに反映されない場合
     - AdminJSはnode_modules/@prisma/clientを参照している模様。そのためschema.prismaのoutputを指定してはスキーマの変更を反映できない。
     - 正しい手順は①schema.prismaを修正、②npx prisma migration devを実行、③npx prisma generateを実行、④コンテナを再起動
   - [x] AdminJSが起動しない場合
     - 開発コンテナを立ち上げてもhttp://localhost:3000/adminjs にアクセスできない場合と同じ
-  - [ ] 操作しているとroot:rootに代わってしまう。対応策はsudo chown -R taizo:taizo \*
-  - [ ] AdminJSのプロファイルが表示されない場合
+  - [ ] 操作しているとroot:rootに代わってしまう。
+    - 修正方法は`sudo chown -R taizo:taizo *`
+    - 開発コンテナ起動時にrootでnpm installされている可能性あり
+  - [x] AdminJSのプロファイルが表示されない場合
+    - rootpathを/astrackに変更するとプロファイルボタンが表示されない。/adminにすると表示されるので
+    - [ ] /astrackにしてもプロファイルボタンを表示するようにする
 
 #### 優先度低
 
 - [ ] RestAPI 自動生成
 - [ ] AdminJS メニュー画面実装
-- [ ] AdminJS 文言カスタマイズ
+- [x] AdminJS 文言カスタマイズ
 - [ ] Prisma マイグレーション確認
 - [ ] Prisma 暗号化
 - [ ] Prisma レプリケーション

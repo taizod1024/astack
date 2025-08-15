@@ -28,13 +28,13 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "esbenp.prettier-vscode",
         "bocovo.prisma-erd-visualizer",
-        "mechatroner.rainbow-csv",
-        "mhutchie.git-graph"
+        "esbenp.prettier-vscode",
+        "mhutchie.git-graph",
+        "shd101wyy.markdown-preview-enhanced"
       ]
     }
-  }
+  },
   // Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
-  // "remoteUser": "devcontainer"
+  "remoteUser": "node"
 }
