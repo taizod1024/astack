@@ -36,9 +36,7 @@ async function main() {
       localeDetection: true,
       translations: {
         ja: {
-          Labels: {
-            password: "aaaa",
-          },
+          Labels: {},
         },
       },
     },
