@@ -5,13 +5,13 @@ model User {
 	password  String
 	name      String?
 	comment   String?
+	deleted   Boolean  @default(false)
 	createdAt DateTime @default(now())
 	updatedAt DateTime @updatedAt
 }
 
 generator client {
 	provider = "prisma-client-js"
-    output   = "../src/generated/client"
 }
 
 datasource db {
