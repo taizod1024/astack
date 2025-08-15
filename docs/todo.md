@@ -32,6 +32,7 @@
 #### 優先度中
 
 - [ ] トラブル対応
+  - [ ] 操作しているとroot:rootに代わってしまう。対応策はsudo chown -R taizo:taizo \*
   - [ ] 開発コンテナを立ち上げてもhttp://localhost:3000/adminjs にアクセスできない場合
   - [ ] AdminJSが起動しない場合
   - [ ] PrismaのスキーマがAdminJSに反映されない場合
