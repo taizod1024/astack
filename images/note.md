@@ -1,0 +1,2 @@
+- stack_icon.svg
+  - https://www.iconfinder.com/icons/7549101/user_interface_layer_layers_design_bundle_stack_icon
