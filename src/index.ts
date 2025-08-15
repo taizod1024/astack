@@ -6,6 +6,7 @@ import { PrismaClient } from "@prisma/client";
 
 const PORT = process.env.PORT || 3000;
 const APP_NAME = "astack";
+const ROOT_PATH = "/" + APP_NAME;
 
 // prisma
 const prisma = new PrismaClient();
@@ -24,7 +25,7 @@ async function main() {
   // adminjs
   const adminJs = new AdminJS({
     resources: prismaResources,
-    rootPath: "/admin",
+    rootPath: ROOT_PATH,
     branding: {
       companyName: APP_NAME + " - " + new Date().toISOString(),
       favicon: "/images/astack_icon.ico",
