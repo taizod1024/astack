@@ -8,7 +8,6 @@
     "dev:down": "docker compose -f docker-compose.dev.yml down $@",
     "dev:restart": "docker compose -f docker-compose.dev.yml restart $@",
     "dev:test": "npx jest",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev:exec": "docker compose -f docker-compose.dev.yml exec astack-app $@"
   },
   "repository": {

@@ -1,10 +1,10 @@
 // Prisma schema
-// ここにモデル定義を追加してください
 model User {
   id        String   @id @default(uuid())
   email     String   @unique
   password  String
   name      String?
+  comment   String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

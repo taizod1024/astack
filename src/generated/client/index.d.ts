@@ -871,6 +871,7 @@ export namespace Prisma {
     email: string | null
     password: string | null
     name: string | null
+    comment: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -880,6 +881,7 @@ export namespace Prisma {
     email: string | null
     password: string | null
     name: string | null
+    comment: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -889,6 +891,7 @@ export namespace Prisma {
     email: number
     password: number
     name: number
+    comment: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -900,6 +903,7 @@ export namespace Prisma {
     email?: true
     password?: true
     name?: true
+    comment?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -909,6 +913,7 @@ export namespace Prisma {
     email?: true
     password?: true
     name?: true
+    comment?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -918,6 +923,7 @@ export namespace Prisma {
     email?: true
     password?: true
     name?: true
+    comment?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1000,6 +1006,7 @@ export namespace Prisma {
     email: string
     password: string
     name: string | null
+    comment: string | null
     createdAt: Date
     updatedAt: Date
     _count: UserCountAggregateOutputType | null
@@ -1026,6 +1033,7 @@ export namespace Prisma {
     email?: boolean
     password?: boolean
     name?: boolean
+    comment?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -1035,6 +1043,7 @@ export namespace Prisma {
     email?: boolean
     password?: boolean
     name?: boolean
+    comment?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -1044,6 +1053,7 @@ export namespace Prisma {
     email?: boolean
     password?: boolean
     name?: boolean
+    comment?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -1053,11 +1063,12 @@ export namespace Prisma {
     email?: boolean
     password?: boolean
     name?: boolean
+    comment?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "name" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "name" | "comment" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
@@ -1067,6 +1078,7 @@ export namespace Prisma {
       email: string
       password: string
       name: string | null
+      comment: string | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["user"]>
@@ -1496,6 +1508,7 @@ export namespace Prisma {
     readonly email: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
+    readonly comment: FieldRef<"User", 'String'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
@@ -1883,6 +1896,7 @@ export namespace Prisma {
     email: 'email',
     password: 'password',
     name: 'name',
+    comment: 'comment',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -1972,6 +1986,7 @@ export namespace Prisma {
     email?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
     name?: StringNullableFilter<"User"> | string | null
+    comment?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
   }
@@ -1981,6 +1996,7 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     name?: SortOrderInput | SortOrder
+    comment?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -1993,6 +2009,7 @@ export namespace Prisma {
     NOT?: UserWhereInput | UserWhereInput[]
     password?: StringFilter<"User"> | string
     name?: StringNullableFilter<"User"> | string | null
+    comment?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
   }, "id" | "email">
@@ -2002,6 +2019,7 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     name?: SortOrderInput | SortOrder
+    comment?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -2017,6 +2035,7 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"User"> | string
     password?: StringWithAggregatesFilter<"User"> | string
     name?: StringNullableWithAggregatesFilter<"User"> | string | null
+    comment?: StringNullableWithAggregatesFilter<"User"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
@@ -2026,6 +2045,7 @@ export namespace Prisma {
     email: string
     password: string
     name?: string | null
+    comment?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -2035,6 +2055,7 @@ export namespace Prisma {
     email: string
     password: string
     name?: string | null
+    comment?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -2044,6 +2065,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2053,6 +2075,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2062,6 +2085,7 @@ export namespace Prisma {
     email: string
     password: string
     name?: string | null
+    comment?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -2071,6 +2095,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2080,6 +2105,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2135,6 +2161,7 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     name?: SortOrder
+    comment?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2144,6 +2171,7 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     name?: SortOrder
+    comment?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2153,6 +2181,7 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     name?: SortOrder
+    comment?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
