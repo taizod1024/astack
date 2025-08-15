@@ -75,7 +75,3 @@ Node.js、TypeScript、AdminJS、Express、Prisma、Node-RED、PostgreSQL を活
 - SSO・多要素認証の方式選定
 - ローコード基盤の範囲・実装方法
 - 監査ログの保存・閲覧方法
-
----
-
-このドキュメントは随時更新する。
