@@ -51,7 +51,7 @@
 
 - [ ] RestAPI 自動生成
 - [ ] AdminJS メニュー画面実装
-- [ ] AdminJS 文言カスタマイズ
+- [x] AdminJS 文言カスタマイズ
 - [ ] Prisma マイグレーション確認
 - [ ] Prisma 暗号化
 - [ ] Prisma レプリケーション

@@ -37,7 +37,10 @@ async function main() {
       localeDetection: true,
       translations: {
         ja: {
-          Labels: {},
+          labels: {
+            prisma: "データ",
+            User: "利用者",
+          },
         },
       },
     },
