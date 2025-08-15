@@ -1,0 +1,30 @@
+services:
+  astack-app:
+    build: .
+    container_name: astack-app
+    working_dir: /usr/src/app
+    ports:
+      - "3000:3000"
+      - "9229:9229"
+    tty: true
+    env_file:
+      - .env
+    volumes:
+      - ./:/usr/src/app
+    depends_on:
+      - astack-db
+    command: npx tsx watch --inspect=0.0.0.0:9229 src/index.ts
+
+  astack-db:
+    image: postgres:16
+    container_name: astack-db
+    env_file:
+      - .env
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      # - ./init/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+volumes:
+  db_data:
