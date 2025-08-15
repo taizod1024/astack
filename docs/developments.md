@@ -1,8 +1,6 @@
 # 開発方法
 
-## astack-app
-
-### 初期化方法
+## 初期化方法
 
 - wsl2 の ubuntu 上を開く
 - `code .` で vscode を開く
@@ -10,9 +8,9 @@
 - `npm install`してライブラリをインストールする
 - `npx prisma generate`して Prisma クライアントを生成する
 
-### デバッグ方法
+## デバッグ方法
 
-#### wsl2の場合
+### wsl2の場合
 
 - デバッグ開始
   - 以下のいずれかの方法でコンテナを起動する
@@ -23,16 +21,17 @@
   - デバッガをデタッチする
   - コンテナを停止する
 
-#### 開発コンテナの場合
+### 開発コンテナの場合
 
 - デバッグ開始
   - 「実行とデバッグ」で「Node.js: Attach」を選択する
 - デバッグ終了
   - デバッガをデタッチする、もしくはvscodeを閉じる
 
-### テーブル変更時
+## テーブル変更方法
 
+- `schema.prisma`を変更
 - `docker compose up -d`でコンテナを起動
-- `npx prisma migrate dev --name <migration_name>` でastack-dbのマイグレーションを実施
+- `npx prisma migrate dev --name <migration_name>` でastack-dbのマイグレーションを実施、ただし、.envファイルの`DATABASE_URL`を使用するため開発コンテナから実行すること
 - `npx prisma generate`で astack-dbを元にastack-appのPrisma クライアントを更新する
 - `docker compose restart` でコンテナを再起動
