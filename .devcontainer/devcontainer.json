@@ -28,10 +28,10 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "esbenp.prettier-vscode",
         "bocovo.prisma-erd-visualizer",
-        "mechatroner.rainbow-csv",
-        "mhutchie.git-graph"
+        "esbenp.prettier-vscode",
+        "mhutchie.git-graph",
+        "shd101wyy.markdown-preview-enhanced"
       ]
     }
   },

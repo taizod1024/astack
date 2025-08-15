@@ -1,11 +1,10 @@
 {
   "recommendations": [
     "ms-vscode-remote.remote-containers",
-    "esbenp.prettier-vscode",
     "ms-ceintl.vscode-language-pack-ja",
     "bocovo.prisma-erd-visualizer",
-    "mechatroner.rainbow-csv",
     "esbenp.prettier-vscode",
-    "mhutchie.git-graph"
+    "mhutchie.git-graph",
+    "shd101wyy.markdown-preview-enhanced"
   ]
 }
