@@ -34,13 +34,15 @@
 
 - [ ] トラブル対応
   - [x] 開発コンテナを立ち上げてもhttp://localhost:3000/adminjs にアクセスできない場合
-    - .devcontainer/docker-compose.yml のcommandがsleep infinityになっていることが原因
+    - `.devcontainer/docker-compose.yml`のcommandがsleep infinityになっていることが原因
   - [x] PrismaのスキーマがAdminJSに反映されない場合
     - AdminJSはnode_modules/@prisma/clientを参照している模様。そのためschema.prismaのoutputを指定してはスキーマの変更を反映できない。
     - 正しい手順は①schema.prismaを修正、②npx prisma migration devを実行、③npx prisma generateを実行、④コンテナを再起動
   - [x] AdminJSが起動しない場合
     - 開発コンテナを立ち上げてもhttp://localhost:3000/adminjs にアクセスできない場合と同じ
-  - [ ] 操作しているとroot:rootに代わってしまう。対応策はsudo chown -R taizo:taizo \*
+  - [ ] 操作しているとroot:rootに代わってしまう。
+    - 修正方法は`sudo chown -R taizo:taizo *`
+    - 開発コンテナ起動時にrootでnpm installされている可能性あり
   - [ ] AdminJSのプロファイルが表示されない場合
 
 #### 優先度低
