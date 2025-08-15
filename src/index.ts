@@ -76,12 +76,6 @@ async function main() {
     res.json(user);
   });
 
-  // サーバー起動
-  const PORT = 3000;
-  app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-  });
-
   // express
   app.get("/", (req, res) => {
     res.send("Hello, astack!");

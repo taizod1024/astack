@@ -4,11 +4,11 @@
   "description": "Node.js、TypeScript、AdminJS、Express、Prisma、Node-RED、PostgreSQL を使用したアプリケーション基盤",
   "main": "index.js",
   "scripts": {
-    "dev:up": "docker compose -f docker-compose.dev.yml up $@",
-    "dev:down": "docker compose -f docker-compose.dev.yml down $@",
-    "dev:restart": "docker compose -f docker-compose.dev.yml restart $@",
-    "dev:test": "npx jest",
-    "dev:exec": "docker compose -f docker-compose.dev.yml exec astack-app $@"
+    "dev:up": "docker compose up $@",
+    "dev:down": "docker compose down $@",
+    "dev:restart": "docker compose restart $@",
+    "dev:exec": "docker compose exec astack-app $@",
+    "dev:test": "npx jest"
   },
   "repository": {
     "type": "git",
