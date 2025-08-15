@@ -6,7 +6,7 @@ import { PrismaClient } from "@prisma/client";
 
 const PORT = process.env.PORT || 3000;
 const APP_NAME = "astack";
-const ROOT_PATH = "/" + APP_NAME;
+const ROOT_PATH = "/admin";
 
 // prisma
 const prisma = new PrismaClient();
@@ -42,8 +42,6 @@ async function main() {
       },
     },
   });
-  const router = AdminJSExpress.buildRouter(adminJs);
-  app.use(adminJs.options.rootPath, router);
 
   // 認証
   const ADMIN = {
@@ -60,6 +58,8 @@ async function main() {
     cookiePassword: "astack_pass",
   });
   app.use(adminJs.options.rootPath, routerAuth);
+  // const router = AdminJSExpress.buildRouter(adminJs);
+  // app.use(adminJs.options.rootPath, router);
 
   // 静的ルーティング
   app.use("/images", express.static("images"));

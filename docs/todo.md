@@ -43,7 +43,9 @@
   - [ ] 操作しているとroot:rootに代わってしまう。
     - 修正方法は`sudo chown -R taizo:taizo *`
     - 開発コンテナ起動時にrootでnpm installされている可能性あり
-  - [ ] AdminJSのプロファイルが表示されない場合
+  - [x] AdminJSのプロファイルが表示されない場合
+    - rootpathを/astrackに変更するとプロファイルボタンが表示されない。/adminにすると表示されるので
+    - [ ] /astrackにしてもプロファイルボタンを表示するようにする
 
 #### 優先度低
 
