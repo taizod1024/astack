@@ -4,15 +4,94 @@
 
 - wsl2 で ubuntu を開く
   - ターミナルから`git clone https://github.com/taizod1024/astack.git` でリポジトリをクローンする
+  - ターミナルから`cd astack`でクローンしたディレクトリに入る
   - ターミナルから`git checkout develop`で開発ブランチにする
   - ターミナルから`code .` で vscode を開く
   - ubuntu上のvscode ※開発コンテナはまだ開かない
     - ターミナルから `npm install` でライブラリをインストールする
+
+      ```
+      npm WARN deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+      npm WARN deprecated glob@8.1.0: Glob versions prior to v9 are no longer supported
+      npm WARN deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+      npm WARN deprecated formidable@1.2.6: Please upgrade to latest, formidable@v2 or formidable@v3! Check these notes: https://bit.ly/2ZEqIau
+
+      added 838 packages, and audited 839 packages in 16s
+
+      135 packages are looking for funding
+      run `npm fund` for details
+
+      4 moderate severity vulnerabilities
+
+      To address all issues (including breaking changes), run:
+      npm audit fix --force
+
+      Run `npm audit` for details.
+      ```
+
     - ターミナルから `npx prisma generate` で Prisma クライアントを生成する
-    - vscodeの左下の「WSL:Ubuntu」をクリックして「コンテナーで再度開く」を選択
+
+      ```
+      Environment variables loaded from .env
+      Prisma schema loaded from prisma/schema.prisma
+
+      ✔ Generated Prisma Client (v6.14.0) to ./node_modules/@prisma/client in 61ms
+
+      Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+
+      Tip: Interested in query caching in just a few lines of code? Try Accelerate today! https://pris.ly/tip-3-accelerate
+      ```
+
+    ```
+
+    ```
+
+  - vscodeの左下の「WSL:Ubuntu」をクリックして「コンテナーで再度開く」を選択
   - 開発コンテナ上のvscode
-    - ターミナルから`npx prisma migrate dev` を実施 ※prismaが.envを参照しているためコンテナ上で実施する
+    - prismaが.envを参照しているためコンテナ上で実施する
+    - 【一括反映の場合】ターミナルから`npx prisma db push`を実施
+
+      ```
+      Environment variables loaded from .env
+      Prisma schema loaded from prisma/schema.prisma
+      Datasource "db": PostgreSQL database "astack_db", schema "public" at "astack-db:5432"
+
+      The database is already in sync with the Prisma schema.
+
+      ✔ Generated Prisma Client (v6.14.0) to ./node_modules/@prisma/client in 62ms
+      ```
+
+    - 【差分反映の場合】ターミナルから`npx prisma migrate dev` を実施
+
+      ```
+      Environment variables loaded from .env
+      Prisma schema loaded from prisma/schema.prisma
+      Datasource "db": PostgreSQL database "astack_db", schema "public" at "astack-db:5432"
+
+      Applying migration `20250812061528_init_user`
+      Applying migration `20250815063738_table_user_add_column`
+      Applying migration `20250815161342_table_user_add_column`
+      Applying migration `20250815161848_table_user_delete_column`
+
+      The following migration(s) have been applied:
+
+      migrations/
+        └─ 20250812061528_init_user/
+            └─ migration.sql
+        └─ 20250815063738_table_user_add_column/
+            └─ migration.sql
+        └─ 20250815161342_table_user_add_column/
+            └─ migration.sql
+        └─ 20250815161848_table_user_delete_column/
+            └─ migration.sql
+
+      Your database is now in sync with your schema.
+
+      ✔ Generated Prisma Client (v6.14.0) to ./node_modules/@prisma/client in 61ms
+      ```
+
     - vscodeを閉じて再度開く
+
   - 開発コンテナ上のvscode
     - http://localhost:3000/admin を開いて起動確認
 
@@ -43,3 +122,7 @@
 - `npx prisma migrate dev --name <migration_name>` でastack-dbのマイグレーションを実施、ただし、.envファイルの`DATABASE_URL`を使用するため開発コンテナから実行すること
 - `npx prisma generate`で astack-dbを元にastack-appのPrisma クライアントを更新する
 - `docker compose restart` でコンテナを再起動
+
+```
+
+```

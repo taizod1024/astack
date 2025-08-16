@@ -31,7 +31,8 @@
         "bocovo.prisma-erd-visualizer",
         "esbenp.prettier-vscode",
         "mhutchie.git-graph",
-        "shd101wyy.markdown-preview-enhanced"
+        "shd101wyy.markdown-preview-enhanced",
+        "natqe.reload"
       ]
     }
   },
