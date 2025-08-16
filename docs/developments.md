@@ -123,6 +123,4 @@
 - `npx prisma generate`で astack-dbを元にastack-appのPrisma クライアントを更新する
 - `docker compose restart` でコンテナを再起動
 
-```
 
-```

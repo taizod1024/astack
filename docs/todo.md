@@ -32,20 +32,22 @@
 
 #### 優先度中
 
-- [ ] トラブル対応
-  - [x] 開発コンテナを立ち上げてもhttp://localhost:3000/adminjs にアクセスできない場合
-    - `.devcontainer/docker-compose.yml`のcommandがsleep infinityになっていることが原因
-  - [x] PrismaのスキーマがAdminJSに反映されない場合
-    - AdminJSはnode_modules/@prisma/clientを参照している模様。そのためschema.prismaのoutputを指定してはスキーマの変更を反映できない。
-    - 正しい手順は①schema.prismaを修正、②npx prisma migration devを実行、③npx prisma generateを実行、④コンテナを再起動
-  - [x] AdminJSが起動しない場合
-    - 開発コンテナを立ち上げてもhttp://localhost:3000/adminjs にアクセスできない場合と同じ
-  - [ ] 操作しているとroot:rootに代わってしまう。
-    - 修正方法は`sudo chown -R taizo:taizo *`
-    - 開発コンテナ起動時にrootでnpm installされている可能性あり
-  - [x] AdminJSのプロファイルが表示されない場合
-    - rootpathを/astrackに変更するとプロファイルボタンが表示されない。/adminにすると表示されるので
-    - [ ] /astrackにしてもプロファイルボタンを表示するようにする
+- [x] 開発コンテナを立ち上げてもhttp://localhost:3000/adminjs にアクセスできない場合
+  - `.devcontainer/docker-compose.yml`のcommandがsleep infinityになっていることが原因
+- [x] PrismaのスキーマがAdminJSに反映されない場合
+  - AdminJSはnode_modules/@prisma/clientを参照している模様。そのためschema.prismaのoutputを指定してはスキーマの変更を反映できない。
+  - 正しい手順は①schema.prismaを修正、②npx prisma migration devを実行、③npx prisma generateを実行、④コンテナを再起動
+- [x] AdminJSが起動しない場合
+  - 開発コンテナを立ち上げてもhttp://localhost:3000/adminjs にアクセスできない場合と同じ
+- [x] 操作しているとroot:rootに代わってしまう。
+  - 修正方法は`sudo chown -R taizo:taizo *`
+  - 開発コンテナ起動時にrootでnpm installされている可能性あり
+  - `devcontainer.json`のremoteUserを修正して`node`で編集するように修正
+- [x] AdminJSのプロファイルが表示されない場合
+  - rootpathを/astrackに変更するとプロファイルボタンが表示されない。/adminにすると表示されるので
+  - [ ] /astrackにしてもプロファイルボタンを表示するようにする
+- [x] ubuntu上でcodeでvscodeを起動できない
+  - https://x.com/taizod1024/status/1956516299796025695
 
 #### 優先度低
 
