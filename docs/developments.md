@@ -3,7 +3,7 @@
 ## 初期化方法
 
 - wsl2 で ubuntu を開く
-  - ターミナルから`git clone git@github.com:taizod1024/astack.git` でリポジトリをクローンする
+  - ターミナルから`git clone https://github.com/taizod1024/astack.git` でリポジトリをクローンする
   - ターミナルから`git checkout develop`で開発ブランチにする
   - ターミナルから`code .` で vscode を開く
   - ubuntu上のvscode ※開発コンテナはまだ開かない
