@@ -6,7 +6,11 @@ import { PrismaClient } from "@prisma/client";
 
 const PORT = process.env.PORT || 3000;
 const APP_NAME = "astack";
-const ROOT_PATH = "/admin";
+const ROOT_PATH = "/astack";
+const ADMIN = {
+  email: "admin",
+  password: "astack_pass",
+};
 
 // prisma
 const prisma = new PrismaClient();
@@ -19,13 +23,20 @@ async function main() {
   const prismaResources = [
     {
       resource: { client: prisma, model: getModelByName("User") },
-      opsions: {},
+      options: {
+        navigation: {
+          name: "システム",
+          icon: "User",
+        },
+      },
     },
   ];
   // adminjs
-  const adminJs = new AdminJS({
+  const adminjs = new AdminJS({
     resources: prismaResources,
     rootPath: ROOT_PATH,
+    loginPath: ROOT_PATH + "/login",
+    logoutPath: ROOT_PATH + "/logout",
     branding: {
       companyName: APP_NAME + " - " + new Date().toISOString(),
       favicon: "/images/astack_icon.ico",
@@ -41,17 +52,24 @@ async function main() {
             prisma: "データ",
             User: "利用者",
           },
+          components: {
+            Login: {
+              welcomeHeader: "AStack",
+              welcomeMessage: "AStackはAdminJS, Node.js, Express, Prisma, PosgreSQLを元にした業務アプリケーション基盤です。",
+              properties: {
+                email: "メールアドレス",
+                password: "パスワード",
+              },
+              loginButton: "ログイン",
+            },
+          },
         },
       },
     },
   });
 
-  // 認証
-  const ADMIN = {
-    email: "admin",
-    password: "astack_pass",
-  };
-  const routerAuth = AdminJSExpress.buildAuthenticatedRouter(adminJs, {
+  // AdminJSルーティング
+  const adminjsRouter = AdminJSExpress.buildAuthenticatedRouter(adminjs, {
     authenticate: async (email, password) => {
       if (email === ADMIN.email && password === ADMIN.password) {
         return ADMIN;
@@ -60,9 +78,7 @@ async function main() {
     },
     cookiePassword: "astack_pass",
   });
-  app.use(adminJs.options.rootPath, routerAuth);
-  // const router = AdminJSExpress.buildRouter(adminJs);
-  // app.use(adminJs.options.rootPath, router);
+  app.use(adminjs.options.rootPath, adminjsRouter);
 
   // 静的ルーティング
   app.use("/images", express.static("images"));
