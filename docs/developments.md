@@ -46,7 +46,8 @@
 
     ```
 
-  - vscodeの左下の「WSL:Ubuntu」をクリックして「コンテナーで再度開く」を選択
+    - vscodeの左下の「WSL:Ubuntu」をクリックして「コンテナーで再度開く」を選択
+
   - 開発コンテナ上のvscode
     - prismaが.envを参照しているためコンテナ上で実施する
     - 【一括反映の場合】ターミナルから`npx prisma db push`を実施
@@ -122,5 +123,3 @@
 - `npx prisma migrate dev --name <migration_name>` でastack-dbのマイグレーションを実施、ただし、.envファイルの`DATABASE_URL`を使用するため開発コンテナから実行すること
 - `npx prisma generate`で astack-dbを元にastack-appのPrisma クライアントを更新する
 - `docker compose restart` でコンテナを再起動
-
-
