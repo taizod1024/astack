@@ -1,5 +1,5 @@
 import express from "express";
-import AdminJS from "adminjs";
+import AdminJS, { type BrandingOptions, type LocaleTranslations, type LocaleTranslationsBlock } from "adminjs";
 import AdminJSExpress from "@adminjs/express";
 import { Database, Resource, getModelByName } from "@adminjs/prisma";
 import { PrismaClient } from "@prisma/client";
@@ -18,54 +18,58 @@ const prisma = new PrismaClient();
 async function main() {
   // アプリケーション
   const app = express();
+
   // prisma
   AdminJS.registerAdapter({ Database, Resource });
-  const prismaResources = [
-    {
-      resource: { client: prisma, model: getModelByName("User") },
-      options: {
-        navigation: {
-          name: "システム",
-          icon: "User",
+  const resourceUser = {
+    resource: { client: prisma, model: getModelByName("User") },
+    options: {
+      navigation: {
+        name: "システム",
+        icon: "User",
+      },
+    },
+  };
+  const prismaResources = [resourceUser];
+
+  // adminjs
+  const brandingOpsions: BrandingOptions = {
+    companyName: APP_NAME + " - " + new Date().toISOString(),
+    favicon: "/images/astack_icon.ico",
+    logo: "/images/astack_logo.png",
+    withMadeWithLove: false,
+  };
+  const locale = {
+    language: "ja",
+    availableLanguages: ["ja"],
+    localeDetection: true,
+    translations: {
+      ja: {
+        labels: {
+          prisma: "データ",
+          User: "利用者",
+        },
+        components: {
+          Login: {
+            welcomeHeader: "astack",
+            welcomeMessage: "astack = Node.js + AdminJS + Express + Prisma + PosgreSQL",
+            properties: {
+              email: "メールアドレス",
+              password: "パスワード",
+            },
+            loginButton: "ログイン",
+          },
         },
       },
     },
-  ];
-  // adminjs
+  };
   const adminjs = new AdminJS({
     resources: prismaResources,
     rootPath: ROOT_PATH,
     loginPath: ROOT_PATH + "/login",
     logoutPath: ROOT_PATH + "/logout",
-    branding: {
-      companyName: APP_NAME + " - " + new Date().toISOString(),
-      favicon: "/images/astack_icon.ico",
-      // logo: "/images/astack_icon.svg",
-    },
-    locale: {
-      language: "ja",
-      availableLanguages: ["ja"],
-      localeDetection: true,
-      translations: {
-        ja: {
-          labels: {
-            prisma: "データ",
-            User: "利用者",
-          },
-          components: {
-            Login: {
-              welcomeHeader: "AStack",
-              welcomeMessage: "AStackはAdminJS, Node.js, Express, Prisma, PosgreSQLを元にした業務アプリケーション基盤です。",
-              properties: {
-                email: "メールアドレス",
-                password: "パスワード",
-              },
-              loginButton: "ログイン",
-            },
-          },
-        },
-      },
-    },
+    branding: brandingOpsions,
+    locale: locale,
   });
 
   // AdminJSルーティング
