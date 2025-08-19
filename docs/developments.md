@@ -123,3 +123,71 @@
 - `npx prisma migrate dev --name <migration_name>` でastack-dbのマイグレーションを実施、ただし、.envファイルの`DATABASE_URL`を使用するため開発コンテナから実行すること
 - `npx prisma generate`で astack-dbを元にastack-appのPrisma クライアントを更新する
 - `docker compose restart` でコンテナを再起動
+
+---
+
+# wsl
+
+```
+wsl --shutdown
+wsl --list
+wsl --unregister Ubuntu
+wsl --list
+wsl --update
+wsl --install Ubuntu
+```
+
+# windows 同居設定
+
+sudo vim /etc/wsl.conf
+
+```
+[interop]
+enabled = true
+appendWindowsPath = false
+
+[automount]
+options = "metadata,umask=22,fmask=11"
+```
+
+# vscode 起動設定
+
+vim ~/.bashrc
+
+```
+export PATH=$PATH:"/mnt/c/Program Files/Microsoft VS Code/bin"
+```
+
+# package
+
+※ https://blue3orz.com/setup-wsl2-docker-on-windows/
+
+```
+sudo apt update
+sudo apt upgrade -y
+
+sudo apt install ca-certificates curl software-properties-common gnupg lsb-release -y
+
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+echo \
+ "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+ $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+
+sudo usermod -aG docker $USER
+```
+
+※後は git clone を実施
+
+vscode 終了
+docker ps でプロセスがなくなることを確認
+vscode 起動
+
+---
+
+sudo chown -R taizo:taizo \*
