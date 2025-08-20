@@ -16,5 +16,27 @@ model User {
 	deleted   Boolean  @default(false)
 	createdAt DateTime @default(now())
 	updatedAt DateTime @updatedAt
+  posts     Post[]
+}
+
+model Post {
+	id        String   @id @default(uuid())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  content   String
+	deleted   Boolean  @default(false)
+	createdAt DateTime @default(now())
+	updatedAt DateTime @updatedAt
+  comments  Comment[]
+}
+
+model Comment {
+	id        String   @id @default(uuid())
+  post      Post     @relation(fields: [postId], references: [id])
+  postId    String
+  content   String
+	deleted   Boolean  @default(false)
+	createdAt DateTime @default(now())
+	updatedAt DateTime @updatedAt
 }
 

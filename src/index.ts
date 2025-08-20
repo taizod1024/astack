@@ -30,7 +30,25 @@ async function main() {
       },
     },
   };
-  const prismaResources = [resourceUser];
+  const resourcePost = {
+    resource: { client: prisma, model: getModelByName("Post") },
+    options: {
+      navigation: {
+        name: "投稿",
+        icon: "User",
+      },
+    },
+  };
+  const resourceComment = {
+    resource: { client: prisma, model: getModelByName("Comment") },
+    options: {
+      navigation: {
+        name: "投稿",
+        icon: "User",
+      },
+    },
+  };
+  const prismaResources = [resourceUser, resourcePost, resourceComment];
 
   // adminjs
   const brandingOpsions: BrandingOptions = {
