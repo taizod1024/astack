@@ -1,6 +1,77 @@
 # 開発方法
 
-## 初期化方法
+## 環境構築
+
+### wsl初期化
+
+```
+wsl --shutdown
+wsl --list
+wsl --unregister Ubuntu
+wsl --list
+```
+
+### ubuntu導入
+
+```
+wsl --update
+wsl --install Ubuntu
+```
+
+### windows 同居設定
+
+sudo vim /etc/wsl.conf
+
+```
+[interop]
+enabled = true
+appendWindowsPath = false
+
+[automount]
+options = "metadata,umask=22,fmask=11"
+```
+
+### vscode 起動設定
+
+vim ~/.bashrc
+
+```
+export PATH=$PATH:"/mnt/c/Program Files/Microsoft VS Code/bin"
+```
+
+code .
+
+### docker 導入
+
+※ https://blue3orz.com/setup-wsl2-docker-on-windows/
+
+```
+sudo apt update
+sudo apt upgrade -y
+
+sudo apt install ca-certificates curl software-properties-common gnupg lsb-release -y
+
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+echo \
+ "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+ $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+
+sudo usermod -aG docker $USER
+```
+
+### node.js, npm導入
+
+```
+sudo npm install nodejs npm
+```
+
+## プロジェクト環境構築
 
 - wsl2 で ubuntu を開く
   - ターミナルから`git clone https://github.com/taizod1024/astack.git` でリポジトリをクローンする
@@ -91,7 +162,9 @@
       ✔ Generated Prisma Client (v6.14.0) to ./node_modules/@prisma/client in 61ms
       ```
 
-    - vscodeを閉じて再度開く
+    - vscode を閉じる
+    - docker ps でプロセスがなくなることを確認
+    - vscode で開発コンテナを開く
 
   - 開発コンテナ上のvscode
     - http://localhost:3000/admin を開いて起動確認
@@ -124,70 +197,10 @@
 - `npx prisma generate`で astack-dbを元にastack-appのPrisma クライアントを更新する
 - `docker compose restart` でコンテナを再起動
 
----
+## トラブル時
 
-# wsl
-
-```
-wsl --shutdown
-wsl --list
-wsl --unregister Ubuntu
-wsl --list
-wsl --update
-wsl --install Ubuntu
-```
-
-# windows 同居設定
-
-sudo vim /etc/wsl.conf
+### 権限関連
 
 ```
-[interop]
-enabled = true
-appendWindowsPath = false
-
-[automount]
-options = "metadata,umask=22,fmask=11"
-```
-
-# vscode 起動設定
-
-vim ~/.bashrc
-
-```
-export PATH=$PATH:"/mnt/c/Program Files/Microsoft VS Code/bin"
-```
-
-# package
-
-※ https://blue3orz.com/setup-wsl2-docker-on-windows/
-
-```
-sudo apt update
-sudo apt upgrade -y
-
-sudo apt install ca-certificates curl software-properties-common gnupg lsb-release -y
-
-sudo install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-sudo chmod a+r /etc/apt/keyrings/docker.gpg
-
-echo \
- "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
- $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-sudo apt update
-sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
-
-sudo usermod -aG docker $USER
-```
-
-※後は git clone を実施
-
-vscode 終了
-docker ps でプロセスがなくなることを確認
-vscode 起動
-
----
-
 sudo chown -R taizo:taizo \*
+```
