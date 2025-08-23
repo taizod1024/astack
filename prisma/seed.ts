@@ -24,7 +24,7 @@ async function main() {
         data: {
           id: postId,
           userId: userId,
-          content: `default投稿${ux}-${px}`,
+          content: `default-post${ux}-${px}`,
         },
       });
 
