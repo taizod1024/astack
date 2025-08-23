@@ -32,7 +32,6 @@ async function main() {
     favicon: "/images/astack_icon.ico",
     logo: "/images/astack_logo.png",
     withMadeWithLove: false,
-    
   };
   const locale = {
     language: "ja",
