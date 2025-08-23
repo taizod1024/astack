@@ -1,8 +1,10 @@
 import express from "express";
 import AdminJS, { type BrandingOptions, type LocaleTranslations, type LocaleTranslationsBlock } from "adminjs";
 import AdminJSExpress from "@adminjs/express";
-import { Database, Resource, getModelByName } from "@adminjs/prisma";
-import { PrismaClient } from "@prisma/client";
+import { Database, Resource } from "@adminjs/prisma";
+import { UserResource } from "./resources/UserResource.js";
+import { PostResource } from "./resources/PostResource.js";
+import { CommentResource } from "./resources/CommentResource.js";
 
 const PORT = process.env.PORT || 3000;
 const APP_NAME = "astack";
@@ -13,6 +15,7 @@ const ADMIN = {
 };
 
 // prisma
+import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
@@ -21,34 +24,7 @@ async function main() {
 
   // prisma
   AdminJS.registerAdapter({ Database, Resource });
-  const resourceUser = {
-    resource: { client: prisma, model: getModelByName("User") },
-    options: {
-      navigation: {
-        name: "システム",
-        icon: "User",
-      },
-    },
-  };
-  const resourcePost = {
-    resource: { client: prisma, model: getModelByName("Post") },
-    options: {
-      navigation: {
-        name: "投稿",
-        icon: "User",
-      },
-    },
-  };
-  const resourceComment = {
-    resource: { client: prisma, model: getModelByName("Comment") },
-    options: {
-      navigation: {
-        name: "投稿",
-        icon: "User",
-      },
-    },
-  };
-  const prismaResources = [resourceUser, resourcePost, resourceComment];
+  const prismaResources = [UserResource, PostResource, CommentResource];
 
   // adminjs
   const brandingOpsions: BrandingOptions = {
