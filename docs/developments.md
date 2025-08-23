@@ -205,6 +205,10 @@ sudo npm install nodejs npm
 
 - schema.prismaを開いた状態でコマンドパレットから`Show Diagram`を実行
 
+## 初期データ登録時
+
+- `npx prisma db seed`でデータを初期化
+
 ## トラブル時
 
 ### 権限関連

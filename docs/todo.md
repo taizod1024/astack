@@ -47,7 +47,7 @@
   - `devcontainer.json`のremoteUserを修正して`node`で編集するように修正
 - [x] AdminJSのプロファイルが表示されない場合
   - rootpathを/astrackに変更するとプロファイルボタンが表示されない。/adminにすると表示されるので
-  - [ ] /astrackにしてもプロファイルボタンを表示するようにする
+  - [x] /astrackにしてもプロファイルボタンを表示するようにする
 - [x] ubuntu上でcodeでvscodeを起動できない
   - https://x.com/taizod1024/status/1956516299796025695
 
