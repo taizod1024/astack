@@ -73,7 +73,7 @@ sudo npm install nodejs npm
 
 ## プロジェクト環境構築
 
-- wsl2 で ubuntu を開く
+- wsl2 で ubuntuを開く
   - ターミナルから`git clone https://github.com/taizod1024/astack.git` でリポジトリをクローンする
   - ターミナルから`cd astack`でクローンしたディレクトリに入る
   - ターミナルから`git checkout develop`で開発ブランチにする
@@ -196,6 +196,14 @@ sudo npm install nodejs npm
 - `npx prisma migrate dev --name <migration_name>` でastack-dbのマイグレーションを実施、ただし、.envファイルの`DATABASE_URL`を使用するため開発コンテナから実行すること
 - `npx prisma generate`で astack-dbを元にastack-appのPrisma クライアントを更新する
 - `docker compose restart` でコンテナを再起動
+
+## テーブル内容確認
+
+- `npx prisma studio`でブラウザから確認・編集
+
+## テーブルリレーション確認
+
+- schema.prismaを開いた状態でコマンドパレットから`Show Diagram`を実行
 
 ## トラブル時
 
