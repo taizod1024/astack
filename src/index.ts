@@ -2,7 +2,8 @@ import express from "express";
 import AdminJS, { type BrandingOptions, type LocaleTranslations, type LocaleTranslationsBlock } from "adminjs";
 import AdminJSExpress from "@adminjs/express";
 import { Database, Resource, getModelByName } from "@adminjs/prisma";
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, Prisma } from "@prisma/client";
+
 
 const PORT = process.env.PORT || 3000;
 const APP_NAME = "astack";
@@ -19,36 +20,10 @@ async function main() {
   // アプリケーション
   const app = express();
 
-  // prisma
+  // PostgreSQLクライアント初期化は不要
+
+  // AdminJSにPrismaアダプタ登録
   AdminJS.registerAdapter({ Database, Resource });
-  const resourceUser = {
-    resource: { client: prisma, model: getModelByName("User") },
-    options: {
-      navigation: {
-        name: "システム",
-        icon: "User",
-      },
-    },
-  };
-  const resourcePost = {
-    resource: { client: prisma, model: getModelByName("Post") },
-    options: {
-      navigation: {
-        name: "投稿",
-        icon: "User",
-      },
-    },
-  };
-  const resourceComment = {
-    resource: { client: prisma, model: getModelByName("Comment") },
-    options: {
-      navigation: {
-        name: "投稿",
-        icon: "User",
-      },
-    },
-  };
-  const prismaResources = [resourceUser, resourcePost, resourceComment];
 
   // adminjs
   const brandingOpsions: BrandingOptions = {
@@ -56,7 +31,6 @@ async function main() {
     favicon: "/images/astack_icon.ico",
     logo: "/images/astack_logo.png",
     withMadeWithLove: false,
-    
   };
   const locale = {
     language: "ja",
@@ -82,6 +56,13 @@ async function main() {
       },
     },
   };
+  // Prismaの全モデル名を型定義から取得し、AdminJSリソース配列を自動生成
+  const modelNames = Object.keys(Prisma.ModelName);
+  const prismaResources = modelNames.map(modelName => ({
+    resource: { client: prisma, model: getModelByName(modelName) },
+    options: { navigation: { name: modelName, icon: "User" } },
+  }));
+
   const adminjs = new AdminJS({
     resources: prismaResources,
     rootPath: ROOT_PATH,
