@@ -1,42 +1,41 @@
 // Prisma schema
 generator client {
-	provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-	provider = "postgresql"
-	url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
-	id        String   @id @default(uuid())
-	email     String   @unique
-	password  String
-	name      String?
-	deleted   Boolean  @default(false)
-	createdAt DateTime @default(now())
-	updatedAt DateTime @updatedAt
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String?
+  deleted   Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   posts     Post[]
 }
 
 model Post {
-	id        String   @id @default(uuid())
-  user      User     @relation(fields: [userId], references: [id])
+  id        String    @id @default(uuid())
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    String
   content   String
-	deleted   Boolean  @default(false)
-	createdAt DateTime @default(now())
-	updatedAt DateTime @updatedAt
+  deleted   Boolean   @default(false)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
   comments  Comment[]
 }
 
 model Comment {
-	id        String   @id @default(uuid())
-  post      Post     @relation(fields: [postId], references: [id])
+  id        String   @id @default(uuid())
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
   postId    String
   content   String
-	deleted   Boolean  @default(false)
-	createdAt DateTime @default(now())
-	updatedAt DateTime @updatedAt
+  deleted   Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
-
