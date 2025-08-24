@@ -1,4 +1,6 @@
 {
   "editor.tabSize": 2,
-  "prismaERDPreviewer.preferredTheme": "dark"
+  "prismaERDPreviewer.preferredTheme": "dark",
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }
